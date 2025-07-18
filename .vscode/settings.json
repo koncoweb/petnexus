@@ -1,0 +1,17 @@
+{
+  "typescript.preferences.includePackageJsonAutoImports": "on",
+  "typescript.suggest.autoImports": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.medusa": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.medusa": true
+  },
+  "typescript.workspaceSymbols.scope": "currentProject"
+} 

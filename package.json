@@ -1,0 +1,16 @@
+{
+  "name": "petnexus-workspace",
+  "version": "1.0.0",
+  "description": "PETNEXUS Medusa e-commerce workspace",
+  "private": true,
+  "scripts": {
+    "dev:backend": "cd petnexus && npm run dev",
+    "dev:storefront": "cd petnexus-storefront && npm run dev",
+    "build:backend": "cd petnexus && npm run build",
+    "build:storefront": "cd petnexus-storefront && npm run build",
+    "install:all": "cd petnexus && npm install && cd ../petnexus-storefront && npm install"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+} 
