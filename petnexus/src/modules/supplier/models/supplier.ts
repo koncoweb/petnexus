@@ -19,6 +19,11 @@ const Supplier = model.define("supplier", {
   whatsapp_number: model.text(),
   auto_restock_enabled: model.boolean().default(false),
   ai_restock_threshold: model.number().default(10),
+  
+  // New fields for promotion management
+  promotion_auto_approval: model.boolean().default(false),
+  max_active_promotions: model.number().default(5),
+  promotion_notification_email: model.text(),
 })
 
 export default Supplier 

@@ -15,11 +15,44 @@ export async function GET(
 
     const [brands, count] = await brandModuleService.listBrands()
 
-    res.json({
-      brands,
-      count,
-    })
+    // Debug logging
+    console.log("Service response - brands:", typeof brands, brands)
+    console.log("Service response - count:", typeof count, count)
+
+    // Handle different response formats from the service
+    let brandsArray: any[] = []
+    let countNumber: number = 0
+
+    // Handle brands
+    if (Array.isArray(brands)) {
+      brandsArray = brands
+    } else if (brands && typeof brands === 'object' && brands.id) {
+      // Single brand object
+      brandsArray = [brands]
+    } else {
+      brandsArray = []
+    }
+
+    // Handle count
+    if (typeof count === 'number') {
+      countNumber = count
+    } else if (typeof count === 'object' && count !== null) {
+      // If count is an object, use array length
+      countNumber = brandsArray.length
+    } else {
+      countNumber = brandsArray.length
+    }
+
+    const response = {
+      brands: brandsArray,
+      count: countNumber,
+    }
+
+    console.log("API response:", response)
+
+    res.json(response)
   } catch (error) {
+    console.error("Brands API error:", error)
     res.status(500).json({
       error: "Failed to retrieve brands",
       message: error instanceof Error ? error.message : "Unknown error",

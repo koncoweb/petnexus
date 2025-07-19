@@ -20,5 +20,14 @@ module.exports = defineConfig({
     {
       resolve: "./src/modules/supplier",
     },
+    {
+      resolve: "./src/modules/smart-restock",
+    },
+    {
+      resolve: "./src/modules/store-inventory",
+      options: {
+        moduleName: "store_inventory"
+      }
+    },
   ],
 })

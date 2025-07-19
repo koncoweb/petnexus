@@ -51,6 +51,8 @@ const ProductBrandSidebarWidget = ({
       try {
         const response = await sdk.client.fetch("/admin/brands")
         console.log("Brands API response:", response)
+        
+        // API now returns proper format: { brands: Brand[], count: number }
         return response as BrandsResponse
       } catch (error) {
         console.error("Brands API error:", error)
@@ -62,26 +64,8 @@ const ProductBrandSidebarWidget = ({
     retryDelay: 1000,
   })
 
-  // Safely extract brands array with fallback and debugging
-  const brands = (() => {
-    if (!brandsData) {
-      console.log("brandsData is undefined")
-      return []
-    }
-    
-    if (!brandsData.brands) {
-      console.log("brandsData.brands is undefined:", brandsData)
-      return []
-    }
-    
-    if (!Array.isArray(brandsData.brands)) {
-      console.log("brandsData.brands is not an array:", brandsData.brands)
-      return []
-    }
-    
-    console.log("Brands array:", brandsData.brands)
-    return brandsData.brands
-  })()
+  // Safely extract brands array
+  const brands = brandsData?.brands || []
 
   const currentBrand = (queryResult?.product as AdminProductBrand)?.brand
 

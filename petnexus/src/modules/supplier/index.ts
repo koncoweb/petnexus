@@ -1,5 +1,11 @@
 import SupplierModuleService from "./service"
 import { Module } from "@medusajs/framework/utils"
+import Supplier from "./models/supplier"
+import RestockOrder from "./models/restock-order"
+import RestockOrderItem from "./models/restock-order-item"
+import SupplierPromotion from "./models/supplier-promotion"
+import BrandPromotion from "./models/brand-promotion"
+import ProductPromotion from "./models/product-promotion"
 
 export const SUPPLIER_MODULE = "supplier"
 
@@ -16,6 +22,15 @@ export const linkable = {
     service: SupplierModuleService,
   },
   restock_order_item: {
+    service: SupplierModuleService,
+  },
+  supplier_promotion: {
+    service: SupplierModuleService,
+  },
+  brand_promotion: {
+    service: SupplierModuleService,
+  },
+  product_promotion: {
     service: SupplierModuleService,
   },
 }

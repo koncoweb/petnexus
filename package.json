@@ -4,13 +4,26 @@
   "description": "PETNEXUS Medusa e-commerce workspace",
   "private": true,
   "scripts": {
-    "dev:backend": "cd petnexus && npm run dev",
-    "dev:storefront": "cd petnexus-storefront && npm run dev",
-    "build:backend": "cd petnexus && npm run build",
-    "build:storefront": "cd petnexus-storefront && npm run build",
-    "install:all": "cd petnexus && npm install && cd ../petnexus-storefront && npm install"
+    "dev:backend": "cd petnexus; npm run dev",
+    "dev:storefront": "cd petnexus-storefront; npm run dev",
+    "build:backend": "cd petnexus; npm run build",
+    "build:storefront": "cd petnexus-storefront; npm run build",
+    "install:all": "cd petnexus; npm install; cd ../petnexus-storefront; npm install",
+    "setup-step1": "cd petnexus; npx medusa exec ./src/scripts/setup-step1-variants.ts",
+    "setup-step2": "cd petnexus; npx medusa exec ./src/scripts/setup-step2-inventory.ts",
+    "setup-step3": "cd petnexus; npx medusa exec ./src/scripts/setup-step3-suppliers.ts",
+    "setup-step4": "cd petnexus; npx medusa exec ./src/scripts/setup-step4-restock-orders.ts",
+    "setup-step5": "cd petnexus; npx medusa exec ./src/scripts/setup-step5-smart-restock.ts",
+    "check-setup": "cd petnexus; npx medusa exec ./src/scripts/check-setup.ts",
+    "fix-variants": "cd petnexus; npx medusa exec ./src/scripts/fix-product-variants.ts",
+    "fix-restock": "cd petnexus; npx medusa exec ./src/scripts/fix-restock-orders.ts",
+    "seed": "cd petnexus; npx medusa exec ./src/scripts/seed.ts",
+    "setup-all": "cd petnexus; npx medusa exec ./src/scripts/setup-all.ts"
   },
   "engines": {
     "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.9.0"
   }
-} 
+}

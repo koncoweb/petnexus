@@ -40,7 +40,7 @@ export async function GET(
 
     const supplierService = req.scope.resolve(SUPPLIER_MODULE)
     
-    const order = await supplierService.retrieveRestockOrder(id)
+    const order = await supplierService.getRestockOrderById(id)
     const items = await supplierService.getRestockOrderItems(id)
 
     res.json({ 
@@ -52,5 +52,33 @@ export async function GET(
   } catch (error) {
     console.error("Error fetching restock order:", error)
     res.status(500).json({ error: "Failed to fetch restock order" })
+  }
+}
+
+export async function DELETE(
+  req: MedusaRequest,
+  res: MedusaResponse
+) {
+  try {
+    const { id } = req.params
+
+    const supplierService = req.scope.resolve(SUPPLIER_MODULE)
+    
+    // First delete all items associated with this order
+    const items = await supplierService.getRestockOrderItems(id)
+    for (const item of items) {
+      await supplierService.removeRestockOrderItem(item.id)
+    }
+    
+    // Then delete the order itself
+    await supplierService.removeRestockOrder(id)
+
+    res.status(204).send()
+  } catch (error) {
+    console.error("Error deleting restock order:", error)
+    res.status(500).json({ 
+      error: "Failed to delete restock order",
+      details: error instanceof Error ? error.message : "Unknown error"
+    })
   }
 } 

@@ -1,0 +1,102 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Dev Backend",
+      "type": "shell",
+      "command": "cd petnexus; npm run dev",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Setup Step 1 - Product Variants",
+      "type": "shell",
+      "command": "cd petnexus; npx medusa exec ./src/scripts/setup-step1-variants.ts",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Setup Step 2 - Inventory",
+      "type": "shell",
+      "command": "cd petnexus; npx medusa exec ./src/scripts/setup-step2-inventory.ts",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Setup Step 3 - Suppliers",
+      "type": "shell",
+      "command": "cd petnexus; npx medusa exec ./src/scripts/setup-step3-suppliers.ts",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Setup Step 4 - Restock Orders",
+      "type": "shell",
+      "command": "cd petnexus; npx medusa exec ./src/scripts/setup-step4-restock-orders.ts",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Setup Step 5 - Smart Restock",
+      "type": "shell",
+      "command": "cd petnexus; npx medusa exec ./src/scripts/setup-step5-smart-restock.ts",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Check Setup Status",
+      "type": "shell",
+      "command": "cd petnexus; npx medusa exec ./src/scripts/check-setup.ts",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Setup All Steps",
+      "type": "shell",
+      "command": "cd petnexus; npx medusa exec ./src/scripts/setup-all.ts",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new"
+      }
+    }
+  ]
+} 
